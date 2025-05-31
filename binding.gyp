@@ -2,16 +2,18 @@
     "targets": [
         {
             "target_name": "libb64",
-            "sources": [ "library/b64.cpp" ],
+            "sources": [ "src/b64.cpp" ],
             "include_dirs": [
-                "<!(node -e \"require('node-addon-api').include\")"
+                "<!(node -e \"require('node-addon-api').include\")",
+                "include"
+            ],
+            "libraries": [
+                "-L<(module_root_dir)/libraries -lb64"
             ],
             "cflags!": [ "-fno-exceptions" ],
-            "cflags!": [ "-fno-rtti" ],
-            "cflags!": [ "-std=c++11" ],
-            "cflags!": [ "-std=c++14" ],
-            "cflags!": [ "-std=c++17" ],
-            "cflags!": [ "-std=c++20" ]
+            "cflags_cc!": [ "-fno-rtti" ],
+            "cflags_cc": ["-std=c++14"],
+            "ldflags": ["-Wl,-rpath,'$$ORIGIN'"]
         }
     ]
 }
