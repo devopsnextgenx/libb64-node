@@ -1,0 +1,21 @@
+{
+  "name": "libb64-node",
+  "version": "1.0.0",
+  "description": "",
+  "main": "b64.js",
+  "scripts": {
+    "configure": "node-gyp configure",
+    "build": "node-gyp build",
+    "rebuild": "node-gyp rebuild",
+    "clean-build": "node-gyp clean configure build"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "gypfile": true,
+  "dependencies": {
+    "node-addon-api": "^8.3.1",
+    "node-gyp": "^11.2.0"
+  }
+}
